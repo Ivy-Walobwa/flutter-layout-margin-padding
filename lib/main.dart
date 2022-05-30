@@ -25,44 +25,55 @@ class Home extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final height = MediaQuery.of(context).size.height;
-    final width = MediaQuery.of(context).size.width;
+
 
     return Scaffold(
         body: SingleChildScrollView(
       child: SafeArea(
-        child: Column(
-          children: [
-            Row(
-              mainAxisAlignment: MainAxisAlignment.start,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                myContainer("Text 1", width, height),
-                myContainer("Text 2", width, height)
-              ],
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.start,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                myContainer("Text 3", width, height),
-                myContainer("Text 4", width, height)
-              ],
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.start,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                myContainer("Text 5", width, height),
-                myContainer("Text 6", width, height)
-              ],
-            ),
-          ],
-        ),
+        child:ContainerGrid(),
       ),
     ));
   }
 
+
+}
+
+
+class ContainerGrid extends StatelessWidget {
+  const ContainerGrid({Key? key}) : super(key: key);
+  @override
+  Widget build(BuildContext context) {
+    final height = MediaQuery.of(context).size.height;
+    final width = MediaQuery.of(context).size.width;
+    return Column(
+      children: [
+        Row(
+          mainAxisAlignment: MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            myContainer("Text 1", width, height),
+            myContainer("Text 2", width, height)
+          ],
+        ),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            myContainer("Text 3", width, height),
+            myContainer("Text 4", width, height)
+          ],
+        ),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            myContainer("Text 5", width, height),
+            myContainer("Text 6", width, height)
+          ],
+        ),
+      ],
+    );
+  }
   Widget myContainer(String text, double width, double height) {
     return Container(
       margin: EdgeInsets.symmetric(
