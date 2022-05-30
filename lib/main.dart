@@ -25,22 +25,29 @@ class Home extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
-
-    return Scaffold(
+    return const Scaffold(
         body: SingleChildScrollView(
       child: SafeArea(
-        child:ContainerGrid(),
+        child: Center(
+          child: Card(
+            color: Colors.yellow,
+            child: Padding(
+              padding: EdgeInsets.all(24.0),
+              child: Text(
+                "Card text",
+                style: TextStyle(fontSize: 32),
+              ),
+            ),
+          ),
+        ),
       ),
     ));
   }
-
-
 }
-
 
 class ContainerGrid extends StatelessWidget {
   const ContainerGrid({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     final height = MediaQuery.of(context).size.height;
@@ -74,6 +81,7 @@ class ContainerGrid extends StatelessWidget {
       ],
     );
   }
+
   Widget myContainer(String text, double width, double height) {
     return Container(
       margin: EdgeInsets.symmetric(
